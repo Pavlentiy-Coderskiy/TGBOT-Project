@@ -1,38 +1,38 @@
 from aiogram import Bot, Dispatcher, types, executor
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
+import aiogram.types
 from aiogram.types import InputFile
 import TOKEN
 
 bot = Bot(TOKEN.APITOKEN)
 dp = Dispatcher(bot)
 
-keyboard = ReplyKeyboardMarkup(resize_keyboard=True, input_field_placeholder="Выберите команду")
-keyboard.add(KeyboardButton("Начало работы надо проектом(1-5 главы)"), KeyboardButton("Основная часть проекта(6-14 "
+keyboard = aiogram.types.ReplyKeyboardMarkup(resize_keyboard=True, input_field_placeholder="Выберите команду")
+keyboard.add(aiogram.types.KeyboardButton("Начало работы надо проектом(1-5 главы)"), aiogram.types.KeyboardButton("Основная часть проекта(6-14 "
                                                                                       "главы)"))
-keyboard.add(KeyboardButton("Критерии оценки проекта(15-16)"))
+keyboard.add(aiogram.types.KeyboardButton("Критерии оценки проекта(15-16)"))
 
-firstPartOfTopicsInlineKeyboard = InlineKeyboardMarkup(row_width=2)
-firstPartOfTopicsInlineKeyboard.add(InlineKeyboardButton(text="Тема 1. Общее пониятие о проекте и проектной "
+firstPartOfTopicsInlineKeyboard = aiogram.types.InlineKeyboardMarkup(row_width=2)
+firstPartOfTopicsInlineKeyboard.add(aiogram.types.InlineKeyboardButton(text="Тема 1. Общее пониятие о проекте и проектной "
                                                               "деятельности",
-                                                         callback_data="topic1GeneralUnderstanding"),
-                                    InlineKeyboardButton(
+                                                                       callback_data="topic1GeneralUnderstanding"),
+                                    aiogram.types.InlineKeyboardButton(
                                         text="Тема 2. Поиск актуальной проблематики, выбор темы прокекта",
                                         callback_data="topic2SearchForCurrentProblems"),
-                                    InlineKeyboardButton(text="Тема 3. Планирование роботы над проектом",
-                                                         callback_data="topic3ProjectPlanning"),
-                                    InlineKeyboardButton(text="Тема 5. Разработка паспорта проекта",
-                                                         callback_data="topic5DevelopingAProjectPassport"))
+                                    aiogram.types.InlineKeyboardButton(text="Тема 3. Планирование роботы над проектом",
+                                                                       callback_data="topic3ProjectPlanning"),
+                                    aiogram.types.InlineKeyboardButton(text="Тема 5. Разработка паспорта проекта",
+                                                                       callback_data="topic5DevelopingAProjectPassport"))
 
-secondPartOfTopicsInlineKeyboard = InlineKeyboardMarkup(row_width=2)
+secondPartOfTopicsInlineKeyboard = aiogram.types.InlineKeyboardMarkup(row_width=2)
 secondPartOfTopicsInlineKeyboard.add(
-    InlineKeyboardButton(text="Тема 6. Введение как вступительная часть учебной работы",
-                         callback_data="topic6IntroductionAsAnIntroductory"),
-    InlineKeyboardButton(text="Тема 7. Технология работы с информационными источниками",
-                         callback_data="topic7TechnologyOfWork"),
-    InlineKeyboardButton(text="Тема 9.-11. Разработка практической части исследования",
-                         callback_data="topic9-11Development"),
-    InlineKeyboardButton(text="Тема 12-14 Готовимся к защите проекта",
-                         callback_data="topic12-14PreparingForProjectDefence"))
+    aiogram.types.InlineKeyboardButton(text="Тема 6. Введение как вступительная часть учебной работы",
+                                       callback_data="topic6IntroductionAsAnIntroductory"),
+    aiogram.types.InlineKeyboardButton(text="Тема 7. Технология работы с информационными источниками",
+                                       callback_data="topic7TechnologyOfWork"),
+    aiogram.types.InlineKeyboardButton(text="Тема 9.-11. Разработка практической части исследования",
+                                       callback_data="topic9-11Development"),
+    aiogram.types.InlineKeyboardButton(text="Тема 12-14 Готовимся к защите проекта",
+                                       callback_data="topic12-14PreparingForProjectDefence"))
 
 
 async def onStartup(_):
