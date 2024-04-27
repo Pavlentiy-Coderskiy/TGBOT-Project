@@ -1,10 +1,9 @@
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import InputFile
+import TOKEN
 
-API_TOKEN = "7089400697:AAG_R1cEnQJNOTD4VHRbFTE5iSPa995ATzs"
-
-bot = Bot(API_TOKEN)
+bot = Bot(TOKEN.APITOKEN)
 dp = Dispatcher(bot)
 
 keyboard = ReplyKeyboardMarkup(resize_keyboard=True, input_field_placeholder="Выберите команду")
